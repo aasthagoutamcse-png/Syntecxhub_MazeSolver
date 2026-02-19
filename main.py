@@ -1,6 +1,5 @@
 import heapq
 
-# Define the maze (0 = path, 1 = wall)
 maze = [
     [0, 0, 0, 0, 1],
     [1, 1, 0, 1, 0],
@@ -12,11 +11,9 @@ maze = [
 start = (0, 0)
 goal = (4, 4)
 
-# Heuristic (Manhattan Distance)
 def heuristic(a, b):
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
-# A* Algorithm
 def a_star(maze, start, goal):
     rows, cols = len(maze), len(maze[0])
     open_list = []
@@ -56,11 +53,9 @@ def a_star(maze, start, goal):
                     came_from[neighbor] = current
     
     return None
-
-# Run the algorithm
+    
 path = a_star(maze, start, goal)
 
-# Output
 if path:
     print("Shortest Path:", path)
 else:
